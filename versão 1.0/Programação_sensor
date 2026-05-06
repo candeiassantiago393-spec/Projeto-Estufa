@@ -1,0 +1,23 @@
+//esta fase consiste apenas na programação do sensor a acender leds e buzzers  consoante limites 
+
+objetivos desta fase:
+
+Ler continuamente o valor do sensor de umidade do solo (A0).
+
+Converter a leitura para uma escala mais fácil de entender (ex: % de umidade).
+
+Comparar com limites definidos por ti (faixa seca, ideal e molhada).
+
+Acender um LED específico por estado:
+LED seco
+LED ideal
+LED molhado
+
+Ativar buzzer de alerta quando entrar na condição de risco (normalmente “solo seco”).
+Mostrar no Serial Monitor o valor lido + estado atual (para depuração e calibração).
+
+Estados que vamos usar
+SECO: abaixo do limite mínimo → LED vermelho + buzzer.
+IDEAL: entre mínimo e máximo → LED verde, sem buzzer.
+MOLHADO: acima do limite máximo → LED azul/amarelo, sem buzzer (ou com aviso opcional).
+
