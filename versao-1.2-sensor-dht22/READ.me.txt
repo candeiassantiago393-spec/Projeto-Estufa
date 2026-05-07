@@ -1,0 +1,93 @@
+# Projeto Estufa — Versão 1.2: Sensor DHT22
+
+Esta versão do projeto da estufa adiciona a leitura de **temperatura do ar** e **humidade relativa do ar** através do sensor **DHT22**.
+
+A versão anterior monitorizava apenas a humidade do solo, usando um potenciómetro para simular o sensor analógico de humidade.  
+Nesta versão, o sistema passa a monitorizar também as condições ambientais internas da estufa.
+
+---
+
+## Objetivo desta versão
+
+O objetivo da versão 1.2 é tornar a estufa mais completa, adicionando um sensor digital DHT22 para medir:
+
+- temperatura do ar;
+- humidade relativa do ar.
+
+Estes valores passam a ser apresentados no display OLED juntamente com a humidade do solo e o estado atual da estufa.
+
+---
+
+## O que mudou em relação à versão anterior
+
+| Elemento | Versão 1.1.2 | Versão 1.2 |
+|---|---|---|
+| Humidade do solo | Sim, através de potenciómetro/sensor analógico | Mantida |
+| Display OLED | Mostrava solo, estado e alerta | Passa a mostrar solo, estado, temperatura e humidade do ar |
+| Temporização | Usava `millis()` em vez de `delay()` no ciclo principal | Mantida |
+| Sensor DHT22 | Não existia | Adicionado |
+| Temperatura do ar | Não era medida | Passa a ser medida |
+| Humidade do ar | Não era medida | Passa a ser medida |
+| Serial Monitor | Podia ser usado para testes | Mostra solo, temperatura e humidade do ar |
+| Versão apresentada no OLED | `Estufa V1.1.2` | `Estufa V1.2` |
+
+---
+
+## Componentes utilizados
+
+| Componente | Função |
+|---|---|
+| Arduino UNO | Controlador principal do sistema |
+| Potenciómetro | Simula o sensor de humidade do solo |
+| DHT22 | Mede temperatura e humidade relativa do ar |
+| Display OLED SSD1306 | Apresenta os valores medidos e o estado do sistema |
+| LED vermelho | Indica solo seco |
+| LED verde | Indica solo com humidade ideal |
+| LED amarelo | Indica solo demasiado molhado |
+| Buzzer | Emite alerta sonoro em estados críticos |
+| Resistências | Proteção dos LEDs |
+
+---
+
+## Pinagem utilizada
+
+| Componente | Pino do componente | Pino no Arduino UNO | Função |
+|---|---|---|---|
+| Potenciómetro | SIG | A0 | Simulação da humidade do solo |
+| Potenciómetro | VCC | 5V | Alimentação |
+| Potenciómetro | GND | GND | Massa |
+| DHT22 | VCC | 5V | Alimentação |
+| DHT22 | SDA / DATA | D8 | Dados digitais do sensor |
+| DHT22 | NC | Não ligado | Sem ligação |
+| DHT22 | GND | GND | Massa |
+| OLED SSD1306 | SDA | A4 | Comunicação I2C |
+| OLED SSD1306 | SCL | A5 | Comunicação I2C |
+| OLED SSD1306 | VCC | 5V | Alimentação |
+| OLED SSD1306 | GND | GND | Massa |
+| LED vermelho | Ânodo | D2 | Indicação de solo seco |
+| LED amarelo | Ânodo | D4 | Indicação de solo molhado |
+| LED verde | Ânodo | D7 | Indicação de solo ideal |
+| Buzzer | Positivo | D6 | Alerta sonoro |
+
+---
+
+## Sensor DHT22
+
+O DHT22 é um sensor digital capaz de medir temperatura e humidade relativa do ar.
+
+Ao contrário de sensores analógicos, o DHT22 não fornece uma tensão proporcional ao valor medido.  
+Ele comunica com o Arduino através de um pino digital, enviando os valores já convertidos em dados digitais.
+
+Por isso, nesta versão, o pino de dados do DHT22 foi ligado ao pino digital `D8` do Arduino UNO.
+
+---
+
+## Bibliotecas utilizadas
+
+Esta versão utiliza as seguintes bibliotecas:
+
+```cpp
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <DHT.h>
