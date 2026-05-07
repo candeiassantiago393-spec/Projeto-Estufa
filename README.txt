@@ -1,1 +1,0 @@
-ter em atenção que display oled em simulação wowki e na realidade  é consideravelmente diferente em código (fazer adaptação)
