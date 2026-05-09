@@ -88,7 +88,7 @@ void setup() {
   display.setTextSize(1);
   display.setTextColor(SSD1306_WHITE);
   display.setCursor(0, 0);
-  display.println("Estufa V1.2");
+  display.println("Estufa V1.3");
   display.println("OLED OK");
   display.println("DHT22 OK");
   display.display();
