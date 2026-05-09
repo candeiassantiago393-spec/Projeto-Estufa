@@ -24,7 +24,7 @@ A leitura da humidade do solo é feita através de um sinal analógico lido no p
 
 ### Versão 1.0
 
-Primeira versão do projeto, com leitura da humidade do solo simulada por potenciómetro e indicação visual através de LEDs.
+Primeira versão do projeto, com leitura da humidade do solo simulada em thinkercad com sensor de humidade de solo e indicação visual através de LEDs.
 
 ### Versão 1.1
 
@@ -34,12 +34,13 @@ Melhoria da lógica de funcionamento e organização do código.
 
 Adição do sensor DHT22 para leitura da temperatura e humidade relativa do ar.  
 Adição do display OLED SSD1306 para apresentação dos valores medidos.
+(Nesta versão foi onde se simulou com potenciometro devido ao simulador wowki que tem o display oled mas não o sensor de solo).
 
 ### Versão 1.3
 
 Adição da simulação de uma bomba de água.
 
-Como o Wokwi não simula diretamente uma bomba de água real, foi usado um LED para representar a bomba. Quando o solo está seco, o Arduino ativa o pino da bomba, fazendo acender o LED. Futuramente, no circuito real, esse mesmo pino poderá controlar um relé, transistor ou MOSFET para acionar uma bomba de água verdadeira.
+Como o Wokwi também não simula diretamente uma bomba de água real, foi usado um LED para representar a bomba. Quando o solo está seco, o Arduino ativa o pino da bomba, fazendo acender o LED. Futuramente, no circuito real, esse mesmo pino poderá controlar um relé, transistor ou MOSFET para acionar uma bomba de água verdadeira.
 
 ---
 
@@ -48,8 +49,9 @@ Como o Wokwi não simula diretamente uma bomba de água real, foi usado um LED p
 ### Software
 
 - Arduino IDE
+- Thinkercad
 - Wokwi
-- Linguagem C/C++
+- Linguagem C++
 
 ### Bibliotecas
 
